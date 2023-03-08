@@ -1,14 +1,6 @@
 const status = true;
 const paymentDone = false;
 const marks = 70;
-const promise = new Promise((resolve, reject) => {
-  if (status) {
-    resolve("resolve");
-  } else {
-    reject("reject");
-  }
-});
-// promise.then((res) => console.log(res)).catch((err) => console.log(err));
 
 const start = () => {
   console.log("starting");
@@ -45,8 +37,14 @@ const finish = () => {
   return promise;
 };
 
-start()
-  .then(progress)
-  .then(finish)
-  .then((val) => console.log(val))
-  .catch((err) => console.log(err));
+const result = async () => {
+  try {
+    await start();
+    await progress();
+    const msg = await finish();
+    console.log("🚀 ~ file: asyncawait.js:45 ~ result ~ msg:", msg);
+  } catch (error) {
+    console.log(error);
+  }
+};
+result();
