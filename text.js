@@ -51,16 +51,15 @@ const getLength = (arr) => {
 //leetcode 1
 const sum = (nums, target) => {
   for (let j = 0; j < nums.length; j++) {
-    console.log(nums[j]);
-    for (let i = j; i < nums.length; i++) {
-      if (nums[j] + nums[i + 1] === target) {
-        return [j, i + 1];
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[j] + nums[i] === target) {
+        return [j, i ];
       }
     }
   }
 };
 
-// console.log("result", sum([2,5,5,11], 10));
+console.log("result", sum([2,6,4,11], 10));
 
 //letcode 9
 
@@ -89,9 +88,9 @@ var removeElement = function (nums, val) {
     }
     console.log(count);
   }
-  return count;
+  return nums;
 };
-// console.log(removeElement([3.2,2,3], 3));
+// console.log("remove",removeElement([3.2,2,3], 3));
 var removeDuplicates = function (nums) {
   let notMatch = [];
   let underscore = [];
@@ -105,8 +104,16 @@ var removeDuplicates = function (nums) {
     }
   
   }
-  return underscore.length, notMatch
 
+  return{
+    underscore, 
+    notMatch
+
+  }
 };
-const res = removeDuplicates([1,1,2])
-console.log(res);
+const res = removeDuplicates([1,1,1,2])
+console.log("hh",res.underscore.length);
+
+let a=10,b=11;
+b=a+(a=b)-b
+// console.log(a,b);

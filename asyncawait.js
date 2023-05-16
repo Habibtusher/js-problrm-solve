@@ -1,6 +1,6 @@
 const status = true;
-const paymentDone = false;
-const marks = 70;
+const paymentDone = true;
+const marks = 80;
 
 const start = () => {
   console.log("starting");
@@ -44,7 +44,7 @@ const result = async () => {
     const msg = await finish();
     console.log("🚀 ~ file: asyncawait.js:45 ~ result ~ msg:", msg);
   } catch (error) {
-    console.log(error);
+    console.log("ssss",error);
   }
 };
 result();
