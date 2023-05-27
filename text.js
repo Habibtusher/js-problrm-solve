@@ -37,16 +37,16 @@ const getArrayLength = (arr) => {
 //!recursion nested array length
 let newArray = [];
 const getLength = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] === "object") {
-      getLength(arr[i]);
+  arr.forEach(element => {
+    if (typeof element === "object") {
+      getLength(element);
     } else {
-      newArray.push(arr[i]);
+      newArray.push(element);
     }
-  }
+  });
   return newArray.length;
 };
-// console.log("result", getLength([]))
+console.log("result array", getLength([1,[2,4,5,[66,78,[54]]]]))
 
 //leetcode 1
 const sum = (nums, target) => {
@@ -90,7 +90,7 @@ var removeElement = function (nums, val) {
   }
   return nums;
 };
-// console.log("remove",removeElement([3.2,2,3], 3));
+console.log("remove",removeElement([3.2,2,3], 3));
 var removeDuplicates = function (nums) {
   let notMatch = [];
   let underscore = [];

@@ -1,16 +1,43 @@
-function greeting(name) {
+const done = true;
+const marks = 80;
+const start = () => {
+  console.log("starting");
+  const promise = new Promise((resolve, reject) => {
+    if (done) {
+      resolve("resolved");
+    } else {
+      reject("error");
+    }
+  });
+  return promise;
+};
+const processing = () => {
+  console.log("processing");
+  const promise = new Promise((resolve, reject) => {
+    if (marks >= 80) {
+      resolve("resolved");
+    } else {
+      reject("reject");
+    }
+  });
+  return promise;
+};
+const end = () => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+       resolve("done");
+    }, 2000);
+   
+  });
+  return promise;
+};
 
-  alert(`Hello, ${name}`);
-}
+// start(() => {
+//   processing(end);
+// });
 
-function processUserInput(callback) {
-  const name = prompt("Please enter your name.");
-  callback(name);
-}
-
-processUserInput(greeting);
-setTimeout(() => {
-    console.log("object");
-}, 2000);
-
-
+start()
+  .then(processing)
+  .then(end)
+  .then((res)=> console.log(res))
+  .catch((err)=>console.log(err))
