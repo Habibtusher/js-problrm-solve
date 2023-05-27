@@ -19,30 +19,31 @@ const getSumsIndex = (num, array) => {
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
       if (array[i] + array[j] === num) {
-        return [i,j]
+        return [i, j]
       }
     }
-  }
- 
-}
- //? MADAM
- function checkPalindrome(x) {
-    const newN = x.toString();
-    const len = newN.length;
-    console.log(len/2);
-  
-    for (let i = 0; i < len / 2; i++) {
-        console.log(newN[len - 1 - i]);
-      if (newN[i] !== newN[len - 1 - i]) {
-        return false;
-      }
-    }
-    return true;
   }
 
-  const merge = (a, b, i = 0) => {
-    return a.slice(0, i).concat(b, a.slice(i));
-  };
-  
-  const newRes = merge([1, 3], [2, 4], 1);
-console.log(checkPalindrome("51 15"));
+}
+//? MADAM
+function checkPalindrome(x) {
+  const newN = x.toString();
+  const len = newN.length;
+  console.log(len / 2);
+
+  for (let i = 0; i < len / 2; i++) {
+    console.log(newN[len - 1 - i]);
+    if (newN[i] !== newN[len - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+const merge = (a, b, i = 0) => {
+  return a.slice(0, i).concat(b, a.slice(i));
+};
+
+const newRes = merge([1, 3, 6], [2, 4], 2);
+console.log(newRes);
+
