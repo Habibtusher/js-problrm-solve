@@ -29,10 +29,7 @@ const getSumsIndex = (num, array) => {
 function checkPalindrome(x) {
   const newN = x.toString();
   const len = newN.length;
-  console.log(len / 2);
-
   for (let i = 0; i < len / 2; i++) {
-    console.log(newN[len - 1 - i]);
     if (newN[i] !== newN[len - 1 - i]) {
       return false;
     }
@@ -45,5 +42,19 @@ const merge = (a, b, i = 0) => {
 };
 
 const newRes = merge([1, 3, 6], [2, 4], 2);
-console.log(newRes);
+// console.log(newRes);
 
+const smoothSentence = (sentence) => {
+  const words = sentence.split(' ')
+
+  for (let i = 0; i < words.length - 1; i++) {
+    const currentWord = words[i].toLowerCase();
+    const nextWord = words[i + 1].toLowerCase();
+    if (currentWord.charAt(currentWord.length - 1) !== nextWord.charAt(0)) {
+      return false
+    }
+  
+  }
+  return true
+}
+console.log(smoothSentence('Carlos swam Masterfully'));
